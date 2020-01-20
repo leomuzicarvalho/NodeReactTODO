@@ -1,0 +1,31 @@
+{
+  "name": "backendapi",
+  "version": "1.0.0",
+  "description": "Backend API for a basic TODO List using React, Node and MongoDB",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leomuzicarvalho/basicTODO.git"
+  },
+  "keywords": [
+    "todo",
+    "nodejs",
+    "node",
+    "react",
+    "reactjs",
+    "mongo",
+    "mongodb"
+  ],
+  "author": "Leonardo Muzi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leomuzicarvalho/basicTODO/issues"
+  },
+  "homepage": "https://github.com/leomuzicarvalho/basicTODO#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
