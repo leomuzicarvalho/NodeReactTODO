@@ -1,0 +1,1 @@
+This is a simple TODO list made with Node and MongoDB on the backend and React on the frontend
