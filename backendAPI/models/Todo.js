@@ -6,6 +6,9 @@ const TodoSchema = mongoose.Schema({
             type: String,
             required: true
         },
+        description: {
+            type: String
+        },
         deadline: {
             type: Date,
             required: true

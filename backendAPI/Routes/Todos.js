@@ -8,12 +8,15 @@ router.get('/', (req,res) => {
 });
 
 router.post('/createTODOtest', (req, res) => {
-    var newTodo = new todo({ title: 'Math assignment', deadline: Date.now() });
+    var newTodo = new todo({ title: req.body.title, description: req.body.description, deadline: new Date() });
 
-    newTodo.save(function (err, todo) {
-        if (err) return console.error(err);
-        console.log(todo.title + " saved to TODO collection.");
-      });
+    newTodo.save()
+    .then(data => {
+        res.json(data);
+    })
+    .catch(err => {
+        res.json({message: err});
+    })
 })
 
 module.exports = router;
