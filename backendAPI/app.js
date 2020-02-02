@@ -1,5 +1,6 @@
 const express = require('express')
 var mongoose = require('mongoose')
+const cors = require('cors');
 const bodyParser = require('body-parser')
 
 require('dotenv').config()
@@ -9,6 +10,7 @@ const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster
 const port = 3000
 
 app.use(bodyParser.json());
+app.use(cors());
 mongoose.connect(uri, { useUnifiedTopology: true, useNewUrlParser: true});
 
 var db = mongoose.connection;
