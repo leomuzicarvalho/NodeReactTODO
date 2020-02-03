@@ -8,23 +8,21 @@ export const TodoProvider = props =>{
         try{
             const response = await fetch('http://localhost:3000/todos/all')
             const data = await response.json()
-            console.log(data)
+            setTodos(data)
         } catch(e){
             console.log(e)
         }
         
     }
 
-    const [todos, setTodos] = useState(
-
-    ) 
+    const [todos, setTodos] = useState([])
 
     useEffect(() => {
-        getTodos();
+        getTodos()
     }, [])
 
     return(
-        <TodoContext.Provider value={'Hi There'}>
+        <TodoContext.Provider value={[todos, setTodos]}>
             {props.children}
         </TodoContext.Provider>
     )

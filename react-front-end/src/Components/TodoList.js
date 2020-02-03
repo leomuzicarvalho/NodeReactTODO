@@ -1,15 +1,18 @@
-import React, {useContext} from 'react'
+import React, {useContext, useState} from 'react'
 import {TodoContext} from '../Contexts/TodoContext'
+import Todo from './Todo'
 
 
 const TodoList = () =>{
 
-    const val = useContext(TodoContext)
+    const [todos, setTodos] = useContext(TodoContext)
 
     return(
-        <div className="allTodos">
-            <h1>those are my todos: {val}</h1>
-        </div>
+        <>
+        {todos.map(todo => (
+            <Todo key={todo._id} title={todo.title} description={todo.description} deadline={ new Date(todo.deadline).toDateString()}/>
+        ))}
+        </>
     )
 }
 
