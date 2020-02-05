@@ -19,7 +19,7 @@ export const TodoProvider = props =>{
 
     useEffect(() => {
         getTodos()
-    }, [])
+    }, [todos])
 
     return(
         <TodoContext.Provider value={[todos, setTodos]}>

@@ -26,10 +26,11 @@ function App() {
 
   return (
     <div className={style.app}>
+      <TodoProvider>
       <div className={style.form}>
         <Form/>
       </div>
-      <TodoProvider>
+      
         <div className={style.list}>
           <TodoList/>
         </div>

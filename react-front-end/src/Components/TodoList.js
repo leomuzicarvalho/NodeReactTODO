@@ -1,11 +1,11 @@
-import React, {useContext, useState} from 'react'
+import React, {useContext} from 'react'
 import {TodoContext} from '../Contexts/TodoContext'
 import Todo from './Todo'
 
 
 const TodoList = () =>{
 
-    const [todos, setTodos] = useContext(TodoContext)
+    const [todos,setTodos] = useContext(TodoContext)
 
     return(
         <>
