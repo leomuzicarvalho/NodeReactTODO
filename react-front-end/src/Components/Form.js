@@ -63,6 +63,8 @@ const Form = () =>{
             console.log(error)
         })
 
+        setTodos([...todos, { '_id': '123919519','title': title, 'description': description, 'deadline': selectedDate}])
+
         setTitle("")
         setDescription("")
 
