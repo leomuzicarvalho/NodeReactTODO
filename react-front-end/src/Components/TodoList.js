@@ -10,7 +10,7 @@ const TodoList = () =>{
     return(
         <>
         {todos.map(todo => (
-            <Todo key={todo._id} title={todo.title} description={todo.description} deadline={ new Date(todo.deadline).toDateString()}/>
+            <Todo key={todo._id} id={todo._id} title={todo.title} description={todo.description} deadline={ new Date(todo.deadline).toDateString()}/>
         ))} 
         </>
     )

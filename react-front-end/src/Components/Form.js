@@ -29,6 +29,15 @@ const Form = () =>{
             textAlign: 'center',
         },
 
+        input : {
+            margin: '10px',
+        },
+
+        button: {
+            padding: '15px',
+            margin: '20px'
+        }
+
     })
 
     const handleDateChange = date => {
@@ -74,17 +83,18 @@ const Form = () =>{
 
     return (
         <Card className={style.card}>
+            <h2>Create TODO</h2>
             <form autoComplete="off">
-                <TextField id="title" label="Title" variant="outlined" value={title} onChange={handleTitle} required/>
-                <TextField id="description" label="Description" variant="outlined" value={description} onChange={handleDescription} required/>
-                <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                <TextField className={style.input} id="title" label="Title" variant="outlined" value={title} onChange={handleTitle} required/>
+                <TextField className={style.input} multiline  id="description" label="Description" variant="outlined" value={description} onChange={handleDescription} required/>
+                <MuiPickersUtilsProvider className={style.input}  utils={DateFnsUtils}>
                     <KeyboardDatePicker
                         disableToolbar
                         variant="inline"
                         format="MM/dd/yyyy"
                         margin="normal"
                         id="deadline"
-                        label="Date picker inline"
+                        label="Select the deadline"
                         value={selectedDate}
                         onChange={handleDateChange}
                         KeyboardButtonProps={{
@@ -92,7 +102,7 @@ const Form = () =>{
                         }}
                     />
                 </MuiPickersUtilsProvider>
-                <Button type="submit" onClick={submitTodo} variant="outlined">Create TODO</Button>
+                <Button type="submit" className={style.button} onClick={submitTodo} variant="outlined">Create TODO</Button>
                 
             </form>
         </Card>
