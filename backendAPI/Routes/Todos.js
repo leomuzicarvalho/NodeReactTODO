@@ -28,7 +28,7 @@ router.get('/find/:id', async (req,res) => {
 });
 
 router.post('/createTODO', (req, res) => {
-    var newTodo = new Todo({ title: req.body.title, description: req.body.description, deadline: new Date() });
+    var newTodo = new Todo({ title: req.body.title, description: req.body.description, deadline: req.body.deadline });
 
     newTodo.save()
     .then(data => {
@@ -39,19 +39,9 @@ router.post('/createTODO', (req, res) => {
     })
 })
 
-router.put('/editTODO/:id', (req, res) => {
-    Todo.updateOne({"_id" : new mongo.ObjectID(req.body.id)}, {$set: {title : req.body.newTitle, description: req.body.newDescription}})
-    .then(data => {
-        res.json({message: "Todo successfully updated!"});
-    })
-    .catch(err => {
-        res.json({message: err});
-    })
-})
-
-router.post('/deleteTODO', (req, res) => {
+router.delete('/deleteTODO/:id', (req, res) => {
     
-    Todo.deleteOne({"_id" : new mongo.ObjectID(req.body.id)})
+    Todo.deleteOne({"_id" : req.params.id})
     .then(data => {
         res.json({message: "Todo deleted!"});
     })

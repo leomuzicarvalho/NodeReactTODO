@@ -1,12 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Box from '@material-ui/core/Box'
 import Card from '@material-ui/core/Card'
 import { makeStyles } from '@material-ui/core/styles'
-import IconButton from '@material-ui/core/IconButton';
-import DeleteIcon from '@material-ui/icons/Delete';
+import IconButton from '@material-ui/core/IconButton'
+import DeleteIcon from '@material-ui/icons/Delete'
+import {TodoContext} from '../Contexts/TodoContext'
+import { getUnixTime } from 'date-fns'
 
 
 const TodoList = props =>{
+
+    const [todos, setTodos] = useContext(TodoContext)
 
     const useStyles = makeStyles({
         card: {
@@ -29,8 +33,26 @@ const TodoList = props =>{
         }
     })
 
+    const deleteTodo = () =>{
+
+        fetch('http://localhost:3000/todos/deleteTODO/' + props.id , {
+            method: 'DELETE',
+        }).then(response => {
+            console.log(response)
+            const element = todos.find((element => element._id == props.id))
+            const index = todos.indexOf(element)
+            const array = [...todos];
+            if (index !== -1) {
+                array.splice(index, 1)
+                setTodos(array)
+            }
+        }).catch(error => {
+            console.log(error)
+        })
+    }
+
     const handleDelete = e =>{
-        console.log(props.id)
+        deleteTodo()
     }
 
     const classes = useStyles()

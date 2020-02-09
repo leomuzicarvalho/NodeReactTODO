@@ -6,7 +6,6 @@ export const TodoContext = createContext()
 export const TodoProvider = props =>{
 
     const [todos, setTodos] = useState([])
-    const [changed, setChanged] = useState(false)
 
     const getTodos = async () =>{
 
